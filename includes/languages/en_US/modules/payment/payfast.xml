@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+  <definitions>
+    <definition>
+      <key>payment_payfast_title</key>
+      <value><![CDATA[PayFast Website Payments]]></value>
+      <group>modules-payment</group>
+    </definition>
+    <definition>
+      <key>payment_payfast_method_title</key>
+      <value><![CDATA[PayFast Website Payments]]></value>
+      <group>modules-payment</group>
+    </definition>
+  </definitions>
+</language>
