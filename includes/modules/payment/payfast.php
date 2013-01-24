@@ -103,7 +103,7 @@ include('payfast_common.inc');
       $params = array('merchant_id' => MODULE_PAYMENT_PAYFAST_MERCHANT_ID,
                       'merchant_key' => MODULE_PAYMENT_PAYFAST_MERCHANT_KEY,                                            
                       'return_url' => HTTPS_SERVER . DIR_WS_HTTPS_CATALOG . FILENAME_CHECKOUT .'?process&invoice='.$this->_order_id,
-                      'cancel_url' => osc_href_link(FILENAME_CHECKOUT, 'checkout', 'SSL', null, null, true),
+                      'cancel_url' => HTTPS_SERVER . DIR_WS_HTTPS_CATALOG . FILENAME_CHECKOUT .'?checkout',
                       'notify_url' =>  HTTPS_SERVER . DIR_WS_HTTPS_CATALOG . FILENAME_CHECKOUT . '?callback&module=' . $this->_code
                       );
       if (MODULE_PAYMENT_PAYFAST_GATEWAY_SERVER == 'Sandbox') {
