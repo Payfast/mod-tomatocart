@@ -132,7 +132,15 @@ include('payfast_common.inc');
       foreach($params as $k=>$v){
         $secureString .= $k.'='.urlencode(trim($v)).'&';
       }
-      $secureString = substr( $secureString, 0, -1 );
+      $passphrase = MODULE_PAYMENT_PAYFAST_PASSPHRASE;
+      if( !empty( $passphrase ) && MODULE_PAYMENT_PAYFAST_GATEWAY_SERVER != 'Sandbox' )
+      {
+          $secureString .= 'passphrase='.MODULE_PAYMENT_PAYFAST_PASSPHRASE;
+      }
+      else
+      {
+          $secureString = substr( $secureString, 0, -1 );
+      }
       $params['signature'] = md5($secureString);
       foreach ($params as $key => $value) {
         $process_button_string .= osc_draw_hidden_field($key, $value);
@@ -215,9 +223,11 @@ include('payfast_common.inc');
         if( !$pfError && !$pfDone )
         {
             pflog( 'Verify security signature' );
+            $passphrase = MODULE_PAYMENT_PAYFAST_PASSPHRASE;
+            $passphrase = !empty( $passphrase ) && MODULE_PAYMENT_PAYFAST_GATEWAY_SERVER != 'Sandbox' ? MODULE_PAYMENT_PAYFAST_PASSPHRASE : null;
         
             // If signature different, log for debugging
-            if( !pfValidSignature( $pfData, $pfParamString ) )
+            if( !pfValidSignature( $pfData, $pfParamString, $passphrase ) )
             {
                 $pfError = true;
                 $pfErrMsg = PF_ERR_INVALID_SIGNATURE;
