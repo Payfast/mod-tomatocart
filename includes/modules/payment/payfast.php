@@ -142,6 +142,7 @@ include('payfast_common.inc');
           $secureString = substr( $secureString, 0, -1 );
       }
       $params['signature'] = md5($secureString);
+      $params['user_agent'] = 'TomatoCart 1.x';
       foreach ($params as $key => $value) {
         $process_button_string .= osc_draw_hidden_field($key, $value);
       }
