@@ -41,9 +41,9 @@ In order to make the module “LIVE”, follow the instructions below:
 8. Click Save
 
 ******************************************************************************
-*                                                                            *
-*    Please see the URL below for all information concerning this module:    *
-*                                                                            *
-*                 https://www.payfast.co.za/shopping-carts/tomatocart/       *
-*                                                                            *
+
+    Please see the URL below for all information concerning this module:
+
+                 https://www.payfast.co.za/shopping-carts/tomatocart/
+
 ******************************************************************************
